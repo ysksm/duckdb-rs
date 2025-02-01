@@ -135,6 +135,9 @@ mod build_bundled {
         cfg.define("DUCKDB_EXTENSION_AUTOINSTALL_DEFAULT", "1");
         cfg.define("DUCKDB_EXTENSION_AUTOLOAD_DEFAULT", "1");
 
+        // Add /utf-8 flag for C++ compilation
+        cfg.flag("/utf-8");
+
         // Since the manifest controls the set of files, we require it to be changed to know whether
         // to rebuild the project
         println!("cargo:rerun-if-changed={out_dir}/{lib_name}/manifest.json");
